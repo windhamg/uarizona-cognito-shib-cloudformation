@@ -11,5 +11,5 @@ This project contains a CloudFormation template and corresponding parameters fil
   ```
   aws cloudformation deploy --stack-name my-cognito --template-file cognito-cf.yml --parameter-overrides file://parameters.json --region <desired-region>
   ```
-  6. Once the stack has deployed, get the output values from the stack, as you'll need these for use in your client application(s).
+  5. Once the stack has deployed, get the output values from the stack, as you'll need these for use in your client application(s).
 
