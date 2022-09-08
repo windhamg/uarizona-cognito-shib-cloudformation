@@ -8,8 +8,10 @@ This project contains a CloudFormation template and corresponding parameters fil
   2. `cd` to the directory of this project in a shell
   3. Ensure your shell has the appropriate IAM credentials for deploying the CloudFormation template. You will need credentials with `Administrator` permissions.
   4. Run the following AWS CLI command to deploy the stack (or, alternatively, use the AWS CloudFormation console). You can override parameters in the template via a JSON file or directly on the command-line (see `aws cloudformation deploy help` for information):
-  ```
-  aws cloudformation deploy --stack-name my-cognito --template-file cognito-cf.yml --parameter-overrides file://parameters.json --region <desired-region>
-  ```
+   
+      ```
+      aws cloudformation deploy --stack-name my-cognito --template-file cognito-cf.yml --parameter-overrides file://parameters.json --region <desired-region>
+      ```
+      **NOTE**: Ensure that the `LoginURLPrefix` CloudFormation parameter (which corresponds to the "hostanme" portion of the Cognito user pool domain URL) is available within the region in which you are deploying this template. You can do this by querying DNS for `<LoginUrlPrefix>.auth.<AWS Region>.amazoncognito.com` -- if you see any `A` records in the response, that value is already taken.
   5. Once the stack has deployed, get the output values from the stack, as you'll need these for use in your client application(s).
 
